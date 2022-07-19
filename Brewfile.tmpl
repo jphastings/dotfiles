@@ -1,0 +1,67 @@
+# Apps
+cask "1password"
+cask "1password-cli"
+cask "raycast"
+cask "docker"
+cask "imageoptim"
+cask "insomnia"
+cask "iterm2"
+cask "plexamp"
+cask "spotify"
+cask "sublime-text"
+cask "the-unarchiver"
+{{- if eq .location "deliveroo" }}
+cask "charles"
+cask "force-paste"
+cask "goland"
+cask "postgres"
+cask "rubymine"
+cask "slack"
+{{- end }}
+{{- if eq .location "personal" }}
+cask "nordvpn"
+cask "plex-media-player"
+{{- end }}
+
+
+# Terminal
+brew "go"
+brew "gpg"
+brew "jq"
+brew "mas"
+brew "netcat"
+brew "node"
+brew "pinentry-mac"
+brew "rbenv"
+brew "ruby"
+brew "zsh"
+{{- if eq .location "deliveroo" }}
+brew "aws/tap/aws-sam-cli"
+brew "redis"
+brew "s3cmd"
+{{- end }}
+
+# Taps
+tap "puma/puma"
+brew "puma/puma/puma-dev"
+{{- if eq .location "deliveroo" }}
+tap "deliveroo/tools"
+brew "deliveroo/tools/roo"
+brew "deliveroo/tools/roo-clone"
+brew "deliveroo/tools/roo-florence"
+brew "deliveroo/tools/roo-go"
+brew "deliveroo/tools/roo-project"
+brew "deliveroo/tools/roo-tool"
+tap "phrase/brewed"
+brew "phrase/brewed/phraseapp"
+{{- end }}
+
+# Mac App Store
+mas "AntiRSI", id: 442007571
+mas "Discovery", id: 1381004916
+mas "The Archive Browser", id: 510232205
+mas "Gapplin", id: 768053424
+mas "Netmo", id: 1192219511
+{{- if eq .location "personal" }}
+mas "Day One", id: 1055511498
+{{- end }}
