@@ -57,8 +57,8 @@ alias abrew="arch -arm64 /opt/homebrew/bin/brew"
 # Deliveroo
 
 ## Github
-export GITHUB_ORG_TOKEN=
-export GITHUB_API_TOKEN=
+export GITHUB_ORG_TOKEN={{- template "1p.tmpl" dict "account" "deliveroo" "id" "quxdhhtwcmpl4qebg5idyfgeee" "field" "credential" }}
+export GITHUB_API_TOKEN={{- template "1p.tmpl" dict "account" "my" "id" "twxx7kygm5aydkp7lzn3f47bpy" "field" "eqpl7zrlwvgkdae6kquscgcxsa" }}
 export HOMEBREW_GITHUB_API_TOKEN=$GITHUB_API_TOKEN
 
 ## Go
@@ -97,7 +97,7 @@ function /() {
 }
 
 ## Hopper
-export HOPPER_API_TOKEN=
+export HOPPER_PRODUCTION_TOKEN={{- template "1p.tmpl" dict "account" "deliveroo" "id" "pxk37wne3y7jzwk5426fsnjkl4" "field" "credential" }}
 function hopper() {
   curl -s --request GET \
       --url https://hopper.deliveroo.net/api/$1 \
@@ -144,5 +144,5 @@ export CPPFLAGS="-I/opt/homebrew/opt/libpq/include"
 export WORKDIR="/Users/jp/src/deliveroo"
 
 ## Supported
-export SUPPORTED_TOKEN=
+export SUPPORTED_TOKEN={{- template "1p.tmpl" dict "account" "deliveroo" "id" "aefs7qna6fablkmnmpbqwxncfy" "field" "credential" }}
 {{- end }}

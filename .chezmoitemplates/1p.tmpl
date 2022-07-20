@@ -1,0 +1,8 @@
+{{- $account := .account -}}
+{{- $id := .id -}}
+{{- $field := .field -}}
+{{ range (onepassword $id "" $account).fields -}}
+{{   if eq .id $field -}}
+{{     .value -}}
+{{   end -}}
+{{ end }}
