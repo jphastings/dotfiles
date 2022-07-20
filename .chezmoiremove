@@ -1,0 +1,6 @@
+{{- if not .is_deliveroo -}}
+**/deliveroo.*
+{{- end -}}
+{{- if not .is_personal -}}
+**/personal.*
+{{- end -}}

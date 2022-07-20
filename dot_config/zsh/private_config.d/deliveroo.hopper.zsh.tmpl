@@ -1,0 +1,7 @@
+export HOPPER_PRODUCTION_TOKEN={{- template "1p.tmpl" dict "account" "deliveroo" "id" "pxk37wne3y7jzwk5426fsnjkl4" "field" "credential" }}
+function hopper() {
+  curl -s --request GET \
+      --url https://hopper.deliveroo.net/api/$1 \
+      --header 'accept: application/json' \
+      --header "authorization: Bearer ${HOPPER_API_TOKEN}"
+}
