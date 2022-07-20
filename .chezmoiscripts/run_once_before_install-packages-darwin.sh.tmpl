@@ -1,3 +1,8 @@
+{{- if eq .chezmoi.os "darwin" -}}
+#!/bin/bash
+
+# Homebrew
+brew bundle --no-upgrade --no-lock --file=/dev/stdin <<EOF
 # Apps
 cask "1password"
 cask "1password-cli"
@@ -10,15 +15,13 @@ cask "plexamp"
 cask "spotify"
 cask "sublime-text"
 cask "the-unarchiver"
-{{- if eq .location "deliveroo" }}
+{{- if .is_deliveroo }}
 cask "charles"
 cask "force-paste"
 cask "goland"
-cask "postgres"
 cask "rubymine"
-cask "slack"
 {{- end }}
-{{- if eq .location "personal" }}
+{{- if .is_personal }}
 cask "nordvpn"
 cask "plex-media-player"
 {{- end }}
@@ -35,7 +38,7 @@ brew "pinentry-mac"
 brew "rbenv"
 brew "ruby"
 brew "zsh"
-{{- if eq .location "deliveroo" }}
+{{- if .is_deliveroo }}
 brew "aws/tap/aws-sam-cli"
 brew "redis"
 brew "s3cmd"
@@ -44,7 +47,7 @@ brew "s3cmd"
 # Taps
 tap "puma/puma"
 brew "puma/puma/puma-dev"
-{{- if eq .location "deliveroo" }}
+{{- if .is_deliveroo }}
 tap "deliveroo/tools"
 brew "deliveroo/tools/roo"
 brew "deliveroo/tools/roo-clone"
@@ -62,6 +65,19 @@ mas "Discovery", id: 1381004916
 mas "The Archive Browser", id: 510232205
 mas "Gapplin", id: 768053424
 mas "Netmo", id: 1192219511
-{{- if eq .location "personal" }}
+{{- if .is_personal }}
 mas "Day One", id: 1055511498
+{{- end }}
+EOF
+
+
+# 1Password
+{{- if .is_deliveroo }}
+op account add --email jp@deliveroo.co.uk --address deliveroo.1password.com --shorthand deliveroo
+eval $(op signin --account deliveroo.1password.com)
+{{- end }}
+{{- if .is_personal }}
+op account add --email jphastings@gmail.com --address my.1password.com --shorthand my
+eval $(op signin --account my.1password.com)
+{{- end }}
 {{- end }}

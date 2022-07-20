@@ -1,4 +1,4 @@
-ub# Path to your oh-my-zsh installation.
+# Path to your oh-my-zsh installation.
 export ZSH=/Users/$USER/.oh-my-zsh
 
 ZSH_THEME="refined"
@@ -14,6 +14,7 @@ alias gconflict="git diff --name-only --diff-filter=U | xargs subl"
 
 # Terminal use
 
+export OP_BIOMETRIC_UNLOCK_ENABLED=true
 export GPG_TTY=`tty`
 export EDITOR="subl -w"
 
@@ -52,7 +53,7 @@ fi
 alias ibrew="arch -x86_64 /usr/local/bin/brew"
 alias abrew="arch -arm64 /opt/homebrew/bin/brew"
 
-{{- if eq .location "deliveroo" }}
+{{- if .is_deliveroo }}
 # Deliveroo
 
 ## Github

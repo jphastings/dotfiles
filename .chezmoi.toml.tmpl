@@ -1,6 +1,14 @@
-{{- $email := promptString "email" -}}
-{{- $location := promptString "location" -}}
+{{- $email := promptString "Email address" -}}
+{{- $is_deliveroo := (or (contains "deliveroo" $email) (ge (len .chezmoi.hostname) 12)) -}}
+{{- $is_personal := promptBool "Personal machine" -}}
 
 [data]
   email = "{{ $email }}"
-  location = "{{ $location }}"
+  is_deliveroo = {{ $is_deliveroo }}
+  is_personal = {{ $is_personal }}
+
+[git]
+  autoAdd = true
+
+[pinentry]
+  command = "pinentry"

@@ -1,0 +1,19 @@
+IdentityFile ~/.ssh/id_ed25519
+
+Host *
+  IdentityAgent "~/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock"
+  UseKeychain yes
+  ForwardAgent yes
+  GSSAPIAuthentication no
+  VerifyHostKeyDNS no
+  StrictHostKeyChecking no
+  HashKnownHosts no
+  TCPKeepAlive yes
+  ServerAliveInterval 600
+
+{{- if .is_personal}}
+Host prj projector projector.local
+  Host projector.local
+  User pi
+  RemoteForward 52698 localhost:52698
+{{- end }}
