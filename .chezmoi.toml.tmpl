@@ -1,5 +1,5 @@
 {{- $email := promptString "Email address" -}}
-{{- $is_deliveroo := (or (contains "deliveroo" $email) (ge (len .chezmoi.hostname) 12)) -}}
+{{- $is_deliveroo := (contains "deliveroo" $email) -}}
 {{- $is_personal := promptBool "Personal machine" -}}
 
 [data]
