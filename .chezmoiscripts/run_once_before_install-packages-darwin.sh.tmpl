@@ -9,18 +9,23 @@ if [ ! command -v brew &> /dev/null ]; then
 fi
 
 brew bundle --no-upgrade --no-lock --file=/dev/stdin <<EOF
-# Apps
+# Basics
+brew "mackup"
+cask "raycast"
+cask "google-chrome"
 cask "1password"
 cask "1password-cli"
-cask "raycast"
-cask "docker"
+cask "sublime-text"
+cask "iterm2"
+brew "zsh"
+
+# Apps
 cask "imageoptim"
 cask "insomnia"
-cask "iterm2"
 cask "plexamp"
 cask "spotify"
-cask "sublime-text"
 cask "the-unarchiver"
+cask "docker"
 {{- if .is_deliveroo }}
 cask "charles"
 cask "force-paste"
@@ -32,19 +37,16 @@ cask "nordvpn"
 cask "plex-media-player"
 {{- end }}
 
-
 # Terminal
 brew "go"
 brew "gpg"
 brew "jq"
-brew "mas"
 brew "netcat"
 brew "node"
 brew "pinentry-mac"
 brew "rbenv"
 brew "ruby"
 brew "yarn"
-brew "zsh"
 {{- if .is_deliveroo }}
 brew "aws/tap/aws-sam-cli"
 brew "redis"
@@ -54,6 +56,11 @@ brew "s3cmd"
 # Taps
 tap "puma/puma"
 brew "puma/puma/puma-dev"
+
+{{- if .is_personal }}
+homebrew/cask-drivers/sonos
+{{- end }}
+
 {{- if .is_deliveroo }}
 tap "deliveroo/tools"
 brew "deliveroo/tools/roo"
@@ -67,6 +74,7 @@ brew "phrase/brewed/phraseapp"
 {{- end }}
 
 # Mac App Store
+brew "mas"
 mas "AntiRSI", id: 442007571
 mas "Discovery", id: 1381004916
 mas "The Archive Browser", id: 510232205
