@@ -1,5 +1,5 @@
 {
-	"color_scheme": "Packages/User/SublimeLinter/Monokai (SL).tmTheme",
+	"color_scheme": "auto",
 	"ensure_new_line_at_eof_on_save": true,
 	"folder_exclude_patterns":
 	[
@@ -25,4 +25,6 @@
 	"update_check": true,
 	"use_tab_stops": true,
 	/*"update_check": false*/
+	"dark_color_scheme": "Packages/Monokai JSON+/Monokai JSON+.tmTheme",
+	"light_color_scheme": "Celeste.sublime-color-scheme",
 }
