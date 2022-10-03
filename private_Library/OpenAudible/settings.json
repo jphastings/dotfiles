@@ -12,7 +12,7 @@
   "mp3Qscale": 4,
   "uid": "1659503803891",
   "language": "en",
-  "lastVersion": "3.5.8",
+  "lastVersion": "3.5.9",
   "html": false,
   "disableVersionCheck": false,
   "autoLink": false,
@@ -21,6 +21,7 @@
   "playFileCmd": "",
   "theme": "",
   "autoPDF": true,
+  "ayce": false,
   "autoRefreshMinutes": 0,
   "browser": "external"
 }
