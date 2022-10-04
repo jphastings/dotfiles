@@ -8,6 +8,7 @@
 	ui = true
 [core]
 	excludesfile = ~/.gitignore-global
+	hooksPath = /Users/jp/.commitlint/hooks
 [pull]
 	rebase = false
 [init]
@@ -19,3 +20,5 @@
 [alias]
   delete-merged-branches = "!git branch --merged | grep -v '*' | grep -v master| xargs git branch -d"
 	recent = branch --sort=-committerdate --format=\"%(committerdate:relative)%09%(refname:short)\"
+[diff]
+	external = difft

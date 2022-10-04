@@ -5,6 +5,8 @@
 	],
 	"installed_packages":
 	[
-		"Monokai JSON+"
+		"Monokai JSON+",
+		"Package Control",
+		"Pretty JSON",
 	],
 }
