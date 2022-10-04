@@ -28,10 +28,13 @@ cask "the-unarchiver"
 cask "docker"
 cask "appcleaner"
 cask "visual-studio-code"
+cask "obsidian"
+cask "cron"
 {{- if .is_deliveroo }}
 cask "charles"
 cask "force-paste"
 cask "goland"
+cask "postico"
 cask "rubymine"
 {{- end }}
 {{- if .is_personal }}
@@ -45,6 +48,7 @@ cask "prusaslicer"
 brew "go"
 brew "gpg"
 brew "jq"
+brew "gh"
 brew "netcat"
 brew "node"
 brew "pinentry-mac"
@@ -55,6 +59,8 @@ brew "yarn"
 brew "aws/tap/aws-sam-cli"
 brew "redis"
 brew "s3cmd"
+brew "libpq"
+brew "jenv"
 {{- end }}
 
 # Taps
