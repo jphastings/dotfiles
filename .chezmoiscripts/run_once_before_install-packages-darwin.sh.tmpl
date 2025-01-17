@@ -8,8 +8,9 @@ if [ ! command -v brew &> /dev/null ]; then
 	eval "$(/opt/homebrew/bin/brew shellenv)"
 fi
 
-# Skip if brew doctor is unhappy (for non-admin accounts)
-brew doctor && brew bundle --no-upgrade --no-lock --file=/dev/stdin <<EOF
+# Skip homebrew installation for accounts that didn't install homebrew (it won't work)
+if [ $(whoami) = $(ls -ld $(brew --prefix) | cut -d' ' -f4) ]; then
+brew bundle --no-upgrade --no-lock --file=/dev/stdin <<EOF
 # Basics
 brew "mackup"
 cask "raycast"
@@ -95,7 +96,7 @@ mas "Netmo", id: 1192219511
 mas "Day One", id: 1055511498
 {{- end }}
 EOF
-
+fi
 
 # 1Password
 {{- if .is_deliveroo }}
