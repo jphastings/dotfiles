@@ -8,7 +8,8 @@ if [ ! command -v brew &> /dev/null ]; then
 	eval "$(/opt/homebrew/bin/brew shellenv)"
 fi
 
-brew bundle --no-upgrade --no-lock --file=/dev/stdin <<EOF
+# Skip if brew doctor is unhappy (for non-admin accounts)
+brew doctor && brew bundle --no-upgrade --no-lock --file=/dev/stdin <<EOF
 # Basics
 brew "mackup"
 cask "raycast"
